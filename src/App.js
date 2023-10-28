@@ -56,7 +56,7 @@ const App=()=> {
                search={search}
                setSearch={setSearch}
       />
-      <Content items={items.filter(item=>(item.task.toLowerCase()).includes((search.toLowerCase())))}
+      <Content items={(items||[]).filter(item=>(item.task.toLowerCase()).includes((search.toLowerCase())))}
                handleOnchange={handleOnchange}
                handleDelete={handleDelete}
       />
