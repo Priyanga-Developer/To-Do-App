@@ -12,7 +12,8 @@ const App=()=> {
   const [search,setSearch]=useState('');
 
   const addItem=(task)=>{
-    const id=items.length? items[items.length-1].id+1 :1;
+    console.log(items.length)
+    const id= (items || []).length? items[items.length-1].id+1 :1;
     const addNewItem={id,task,checked:false}
     const listItems=[...items,addNewItem]
     setItems(listItems)
