@@ -14,7 +14,7 @@ const App=()=> {
   const addItem=(task)=>{
     const id= (items || []).length? items[items.length-1].id+1 :1;
     const addNewItem={id,task,checked:false}
-    const listItems=[...items,addNewItem]
+    const listItems=[...items ||[],addNewItem]
     setItems(listItems)
     localStorage.setItem("to-do-list",JSON.stringify(listItems))
   }
