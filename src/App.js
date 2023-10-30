@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from './Header';
 import Content from './Content';
 import Footer from './Footer';
@@ -7,9 +7,14 @@ import SearchItem from './SearchItem';
 
 
 const App=()=> {
-  const [items,setItems]=useState(JSON.parse(localStorage.getItem("to-do-list")||[]));
+  const [items,setItems]=useState([]);
   const [newItem,setNewItem]=useState('');
   const [search,setSearch]=useState('');
+
+  useEffect(()=>{
+    console.log(JSON.parse(localStorage.getItem("to-do-list")))
+    JSON.parse(localStorage.getItem("to-do-list"))
+  },[])
 
   const addItem=(task)=>{
     const id= items.length? items[items.length-1].id+1 :1;
