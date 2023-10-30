@@ -7,14 +7,14 @@ import SearchItem from './SearchItem';
 
 
 const App=()=> {
-  const [items,setItems]=useState(JSON.parse(localStorage.getItem("to-do-list")));
+  const [items,setItems]=useState(JSON.parse(localStorage.getItem("to-do-list")||[]));
   const [newItem,setNewItem]=useState('');
   const [search,setSearch]=useState('');
 
   const addItem=(task)=>{
-    const id= (items || []).length? items[items.length-1].id+1 :1;
+    const id= items.length? items[items.length-1].id+1 :1;
     const addNewItem={id,task,checked:false}
-    const listItems=[...items ||[],addNewItem]
+    const listItems=[...items ,addNewItem]
     setItems(listItems)
     localStorage.setItem("to-do-list",JSON.stringify(listItems))
   }
@@ -56,7 +56,7 @@ const App=()=> {
                search={search}
                setSearch={setSearch}
       />
-      <Content items={(items||[]).filter(item=>(item.task.toLowerCase()).includes((search.toLowerCase())))}
+      <Content items={items.filter(item=>(item.task.toLowerCase()).includes((search.toLowerCase())))}
                handleOnchange={handleOnchange}
                handleDelete={handleDelete}
       />
