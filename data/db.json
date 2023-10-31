@@ -1,20 +1,19 @@
 {
-    "items":[
-        {
-            "id":0,
-            "checked":true,
-            "task": "Practice Coding"
-        },
-        {
-            "id":1,
-            "checked":false,
-            "task": "Play Cricket"
-        },
-        {
-            "id":2,
-            "checked":true,
-            "task": "Create a small project"
-        }
-
-    ]
+  "items": [
+    {
+      "id": 0,
+      "checked": true,
+      "task": "Practice Coding"
+    },
+    {
+      "id": 4,
+      "task": "play tennis",
+      "checked": false
+    },
+    {
+      "id": 5,
+      "task": "priyanga",
+      "checked": false
+    }
+  ]
 }

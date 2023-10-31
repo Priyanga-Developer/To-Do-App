@@ -1,13 +1,13 @@
 import ItemList from "./ItemList";
 
-const Content = ({items,handleOnchange,handleDelete}) => {
+const Content = ({items,handleOnCheck,handleDelete}) => {
  
   return (
     <>
     <div className='content'>  
        {(items.length)?(<ItemList
         items={items}
-        handleOnchange={handleOnchange}
+        handleOnCheck={handleOnCheck}
         handleDelete={handleDelete}
         />):(<p>Your list is Empty</p>)
       }

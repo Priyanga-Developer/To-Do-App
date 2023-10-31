@@ -1,12 +1,12 @@
 import React from 'react'
 import { FaTrash } from "react-icons/fa";
 
-const ListItems = ({eachitem,handleOnchange,handleDelete}) => {
+const ListItems = ({eachitem,handleOnCheck,handleDelete}) => {
   return (
     <li key={eachitem.id}>
-    <input type='checkbox' onChange={()=>handleOnchange(eachitem.id)} checked={eachitem.checked} />
+    <input type='checkbox' onChange={()=>handleOnCheck(eachitem.id)} checked={eachitem.checked} />
        <label style={(eachitem.checked)?{textDecoration:"line-through"}:null} 
-       onDoubleClick={()=>handleOnchange(eachitem.id)}>{eachitem.task}
+       onDoubleClick={()=>handleOnCheck(eachitem.id)}>{eachitem.task}
        </label>
        <FaTrash
        role="button"
