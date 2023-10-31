@@ -1,0 +1,20 @@
+{
+    "items":[
+        {
+            "id":0,
+            "checked":true,
+            "task": "Practice Coding"
+        },
+        {
+            "id":1,
+            "checked":false,
+            "task": "Play Cricket"
+        },
+        {
+            "id":2,
+            "checked":true,
+            "task": "Create a small project"
+        }
+
+    ]
+}

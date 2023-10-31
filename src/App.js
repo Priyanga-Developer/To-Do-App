@@ -5,15 +5,36 @@ import Footer from './Footer';
 import AddItem from './AddItem';
 import SearchItem from './SearchItem';
 
-
 const App=()=> {
   const [items,setItems]=useState([]);
   const [newItem,setNewItem]=useState('');
   const [search,setSearch]=useState('');
+  const [fetchError,setFetchError]=useState(null);
+  const [isLoading,setIsLoding]=useState(true);
+  const API_URL= "http://localhost:3500/items";
 
   useEffect(()=>{
-    console.log(JSON.parse(localStorage.getItem("to-do-list")))
-    JSON.parse(localStorage.getItem("to-do-list"))
+       const fetchItems= async()=>{
+        try{
+          const response=await fetch (API_URL);
+          if(!response.ok) throw Error ("Data is not fetched")
+          const listItems= await response.json();
+          console.log(listItems);
+          setItems(listItems);
+        }
+        catch(err){
+          setFetchError(err.message)
+          console.log(err.message)
+        }
+        finally{
+          setIsLoding(false)
+        }
+
+       }
+       setTimeout(() => {
+        (async()=>await fetchItems())()
+       },2000);
+      
   },[])
 
   const addItem=(task)=>{
@@ -61,10 +82,15 @@ const App=()=> {
                search={search}
                setSearch={setSearch}
       />
-      <Content items={items.filter(item=>(item.task.toLowerCase()).includes((search.toLowerCase())))}
+      <main>
+        {fetchError&& <p>{`Error:${fetchError}`}</p>}
+        {isLoading&&<p>Data is loading ,Please wait...</p>}
+      {!isLoading && !fetchError &&
+              <Content items={items.filter(item=>(item.task.toLowerCase()).includes((search.toLowerCase())))}
                handleOnchange={handleOnchange}
-               handleDelete={handleDelete}
-      />
+               handleDelete={handleDelete}/>
+   }
+      </main>
       <Footer/>
     </div>
     

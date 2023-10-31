@@ -3,6 +3,7 @@ import ItemList from "./ItemList";
 const Content = ({items,handleOnchange,handleDelete}) => {
  
   return (
+    <>
     <div className='content'>  
        {(items.length)?(<ItemList
         items={items}
@@ -12,6 +13,8 @@ const Content = ({items,handleOnchange,handleDelete}) => {
       }
  
     </div>
+
+    </>
   )
 }
 

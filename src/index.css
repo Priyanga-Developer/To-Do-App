@@ -132,8 +132,8 @@ h1{
    color: #fe4949;
 }
 
-.content p{
-
+main p{
+  text-align: center;
   margin-top: 30px;
   font-size: 40px;
 
