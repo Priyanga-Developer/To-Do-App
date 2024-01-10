@@ -9,6 +9,7 @@ const AddItem = ({  newItem ,setNewItem ,handleSubmit}) => {
         <input
         autoFocus
         ref={inputEl}
+        data-testid="inputId"
         id='addItem'
         type='text'
         placeholder='Add Task'
@@ -16,7 +17,7 @@ const AddItem = ({  newItem ,setNewItem ,handleSubmit}) => {
         value={newItem}
         onChange={(e)=>setNewItem(e.target.value)}
         />
-    <button type='submit' onClick={()=>inputEl.current.focus()} >Add</button>
+    <button type='submit' data-testid="addtask" onClick={()=>inputEl.current.focus()} >Add</button>
     </form>
     </>
   )
