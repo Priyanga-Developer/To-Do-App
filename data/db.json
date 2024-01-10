@@ -6,13 +6,8 @@
       "task": "Practice Coding"
     },
     {
-      "id": 4,
+      "id": 8,
       "task": "play tennis",
-      "checked": false
-    },
-    {
-      "id": 5,
-      "task": "priyanga",
       "checked": false
     }
   ]
